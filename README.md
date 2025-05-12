@@ -34,14 +34,7 @@ Aplicación móvil para rastrear precios y estadísticas de criptomonedas en tie
 - CLI de React Native
 
 ### Estructura del proyecto
-src/
-├── core/
-│   ├── domain/          # Modelos y lógica de negocio
-│   ├── presentation/    # Componentes UI
-│   └── data/           # API y almacenamiento
-├── assets/             # Recursos multimedia
-├── utils/              # Funciones helpers
-└── App.tsx             # Entrada principal
+![Screenshot 2025-05-12 at 5 06 30 PM](https://github.com/user-attachments/assets/16744998-8ba7-4399-8fd1-05d7cb7d33e8)
 
 ### Pasos para ejecutar
 
