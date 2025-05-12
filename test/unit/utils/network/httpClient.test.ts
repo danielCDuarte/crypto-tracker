@@ -38,7 +38,6 @@ const mockAxiosInstance: Partial<AxiosInstance> & {
   defaults: {
     baseURL: '',
     headers: mockHeadersDefaults,
-    // Include other required defaults
     adapter: jest.fn(),
     transformRequest: [],
     transformResponse: [],
@@ -60,13 +59,8 @@ describe('HttpClient', () => {
   const baseURL = 'https://api.example.com';
 
   beforeEach(() => {
-    // Create mock instance first
     (axios.create as jest.Mock).mockReturnValue(mockAxiosInstance);
-    
-    // Then create HttpClient with the mock instance
     httpClient = new HttpClient(baseURL);
-    
-    // Clear all mocks
     jest.clearAllMocks();
   });
 
