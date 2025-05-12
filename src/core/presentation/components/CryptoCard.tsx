@@ -15,7 +15,7 @@ export const CryptoCard: React.FC<Props> = ({ crypto, onPress }) => {
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{crypto.name}</Text>
-        <Text style={styles.price}>${parseFloat(crypto.price_usd).toFixed(2)}</Text>
+        <Text style={styles.price}>USD ${parseFloat(crypto.price_usd).toFixed(2)}</Text>
       </View>
       <View style={styles.changeContainer}>
         <Text
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   symbolContainer: {
     backgroundColor: '#f0f0f0',
     borderRadius: 20,
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,

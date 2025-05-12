@@ -33,7 +33,7 @@ export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
       </View>
 
       <View style={styles.priceContainer}>
-        <Text style={styles.price}>${parseFloat(crypto.price_usd).toFixed(2)}</Text>
+        <Text style={styles.price}>USD ${parseFloat(crypto.price_usd).toFixed(2)}</Text>
         <Text
           style={[
             styles.change,

@@ -31,7 +31,7 @@ export const CryptoListScreen: React.FC<Props> = observer(({ viewModel, onSelect
       <SearchBar
         value={viewModel.searchQuery}
         onChangeText={(text) => viewModel.setSearchQuery(text)}
-        placeholder="Search cryptocurrencies..."
+        placeholder="Search crypto ..."
       />
       <FlatList
         data={viewModel.filteredCryptos}

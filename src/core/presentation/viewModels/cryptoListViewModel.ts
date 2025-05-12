@@ -41,7 +41,6 @@ export class CryptoListViewModel {
     
     try {
       const data = await getCryptos.execute();
-      
       runInAction(() => {
         this.cryptos = data;
         this.filterCryptos();
@@ -50,7 +49,6 @@ export class CryptoListViewModel {
     } catch (err) {
       runInAction(() => {
         this.error = 'Failed to load cryptocurrencies';
-        console.error(err);
       });
     } finally {
       runInAction(() => {
