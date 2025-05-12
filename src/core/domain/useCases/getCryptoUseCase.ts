@@ -1,7 +1,7 @@
 import { CryptoRepository } from '../repositories/cryptoRepository';
 import { CryptoCurrency } from '../entities/crypto';
 
-export class GetCryptos {
+export class GetCryptoUseCase {
   constructor(private readonly cryptoRepository: CryptoRepository) {}
 
   async execute(): Promise<CryptoCurrency[]> {

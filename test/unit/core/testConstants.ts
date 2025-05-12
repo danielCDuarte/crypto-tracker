@@ -1,6 +1,6 @@
-import { CryptoCurrency } from '../../../../src/core/domain/entities/crypto';
+import { CryptoCurrency } from '../../../src/core/domain/entities/crypto';
 
-export class TestDataConstants {
+export class TestConstants {
   static get mockCryptoData(): CryptoCurrency[] {
     return [
       {

@@ -1,6 +1,6 @@
 import { CryptoAPIDataSource } from '../../../../../src/core/data/datasources/cryptoAPIDataSource';
 import { CryptoCurrency } from '../../../../../src/core/domain/entities/crypto';
-import { TestDataConstants } from '../testDataConstants';
+import { TestConstants } from '../../testConstants';
 
 jest.mock('../../../../../src/utils/network/httpClient', () => {
   return {
@@ -25,7 +25,7 @@ describe('CryptoAPIDataSource', () => {
 
   describe('getCryptos', () => {
     it('should return cryptocurrency data when API call is successful', async () => {
-      mockRequest.mockResolvedValue({ data: TestDataConstants.mockCryptoData });
+      mockRequest.mockResolvedValue({ data: TestConstants.mockCryptoData });
       const result = await cryptoDataSource.getCryptos();
       
       expect(mockRequest).toHaveBeenCalledWith({
@@ -36,7 +36,7 @@ describe('CryptoAPIDataSource', () => {
     });
 
     it('should throw error when response data is invalid', async () => {
-      mockRequest.mockResolvedValue({ data: TestDataConstants.nullCryptoData });
+      mockRequest.mockResolvedValue({ data: TestConstants.nullCryptoData });
       await expect(cryptoDataSource.getCryptos()).rejects.toThrow(
         'Invalid response format from API'
       );

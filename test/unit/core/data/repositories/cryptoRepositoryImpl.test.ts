@@ -1,13 +1,12 @@
 import { CryptoRepositoryImpl } from '../../../../../src/core/data/repositories/cryptoRepositoryImpl';
 import { CryptoAPIDataSource } from '../../../../../src/core/data/datasources/cryptoAPIDataSource';
 import { CryptoCurrency } from '../../../../../src/core/domain/entities/crypto';
-import { TestDataConstants } from '../testDataConstants';
+import { TestConstants } from '../../testConstants';
 
 describe('CryptoRepositoryImpl', () => {
   let repository: CryptoRepositoryImpl;
   let realDataSource: CryptoAPIDataSource;
   
-
   beforeEach(() => {
     realDataSource = new CryptoAPIDataSource();
     repository = new CryptoRepositoryImpl(realDataSource);
@@ -16,15 +15,15 @@ describe('CryptoRepositoryImpl', () => {
 
   describe('getCryptos', () => {
     it('should return cryptocurrency data from data source', async () => {
-      jest.spyOn(realDataSource, 'getCryptos').mockResolvedValue(TestDataConstants.mockCryptoData);
+      jest.spyOn(realDataSource, 'getCryptos').mockResolvedValue(TestConstants.mockCryptoData);
       const result = await repository.getCryptos();
-      expect(result).toEqual(TestDataConstants.mockCryptoData);
+      expect(result).toEqual(TestConstants.mockCryptoData);
     });
 
     it('should propagate errors from data source', async () => {
       const error = new Error('Network error');
-      jest.spyOn(realDataSource, 'getCryptos').mockRejectedValue(TestDataConstants.errorCryptoData);
-      await expect(repository.getCryptos()).rejects.toThrow(TestDataConstants.errorCryptoData);
+      jest.spyOn(realDataSource, 'getCryptos').mockRejectedValue(TestConstants.errorCryptoData);
+      await expect(repository.getCryptos()).rejects.toThrow(TestConstants.errorCryptoData);
     });
   });
 });

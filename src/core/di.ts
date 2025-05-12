@@ -1,6 +1,6 @@
 import { CryptoAPIDataSource } from './data/datasources/cryptoAPIDataSource';
 import { CryptoRepositoryImpl } from './data/repositories/cryptoRepositoryImpl';
-import { GetCryptos } from './domain/useCases/getCryptos';
+import { GetCryptoUseCase } from './domain/useCases/getCryptoUseCase';
 
 
 // Datasources
@@ -10,4 +10,4 @@ const cryptoAPIDataSource = new CryptoAPIDataSource();
 const cryptoRepository = new CryptoRepositoryImpl(cryptoAPIDataSource);
 
 // UseCases
-export const getCryptos = new GetCryptos(cryptoRepository);
+export const getCryptoUseCase = new GetCryptoUseCase(cryptoRepository);

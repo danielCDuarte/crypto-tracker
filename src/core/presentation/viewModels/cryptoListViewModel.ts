@@ -1,5 +1,5 @@
 import { makeAutoObservable, action, runInAction } from 'mobx';
-import { getCryptos } from '../../di';
+import { getCryptoUseCase } from '../../di';
 import { CryptoCurrency } from '../../domain/entities/crypto';
 
 export class CryptoListViewModel {
@@ -38,9 +38,8 @@ export class CryptoListViewModel {
   loadCryptos = action(async () => {
     this.isLoading = true;
     this.error = null;
-    
     try {
-      const data = await getCryptos.execute();
+      const data = await getCryptoUseCase.execute();
       runInAction(() => {
         this.cryptos = data;
         this.filterCryptos();
