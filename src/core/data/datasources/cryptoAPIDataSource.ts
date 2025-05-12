@@ -1,19 +1,23 @@
 import axios from 'axios';
 import { CryptoDTO, mapToDomain } from '../dtos/cryptoDTO';
 import { CryptoCurrency } from '../../domain/entities/crypto';
+import { HttpClient } from '../../network/httpClient';
 
 const BASE_URL = 'https://api.coinlore.net/api';
 
 export class CryptoAPIDataSource {
-  async getCryptos(): Promise<CryptoCurrency[]> {
-    let url = `${BASE_URL}/tickers/`
-    const response = await axios.get(url);
-    return response.data.data.map((crypto: CryptoDTO) => mapToDomain(crypto));
+
+  private httpClient: HttpClient;
+
+  constructor() {
+    this.httpClient = new HttpClient({
+      baseURL: BASE_URL
+    });
   }
 
-  async getCryptoDetail(id: string): Promise<CryptoCurrency> {
-    let url = `${BASE_URL}/ticker/?id=${id}`
-    const response = await axios.get(url);
-    return mapToDomain(response.data);
+  async getCryptos(): Promise<CryptoCurrency[]> {
+    let url = `${BASE_URL}/tickers/`
+    const response = await this.httpClient.get(url);
+    return response.data.data.map((crypto: CryptoDTO) => mapToDomain(crypto));
   }
 }
