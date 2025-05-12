@@ -1,5 +1,5 @@
 // test/unit/core/network/httpClient/httpClient.test.ts
-import { HttpClient } from '../../../../../src/utils/network/httpClient';
+import { HttpClient } from '../../../../src/utils/network/httpClient';
 import axios, { AxiosInstance } from 'axios';
 
 jest.mock('axios');
