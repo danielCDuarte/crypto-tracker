@@ -59,11 +59,7 @@ npx expo start --clear
 
 4. Testing : Pruebas unitarias del proyecto
 ```
-npm test
-```
-![Screenshot 2025-05-12 at 4 47 02 PM](https://github.com/user-attachments/assets/16ade3bc-851c-4dcb-a998-f809cb324804)
-```
-pm test - --coverage
+npm test - --coverage
 ```
 ![Screenshot 2025-05-12 at 4 51 46 PM](https://github.com/user-attachments/assets/4a6f063e-bce8-4714-98a1-c14b246c318b)
 
