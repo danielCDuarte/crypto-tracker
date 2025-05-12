@@ -54,8 +54,8 @@ npm install
 npx expo start --clear
 ```
 ![Screenshot 2025-05-12 at 4 47 29 PM](https://github.com/user-attachments/assets/4d712241-4614-4157-8b29-3ff13469d274)
-- Presionar i para abrir la app en IOS.
-- Presionar a para abrir la app en Android.
+- Presionar: i ,para abrir la app en IOS.
+- Presionar: a ,para abrir la app en Android.
 
 4. Testing : Pruebas unitarias del proyecto
 ```
