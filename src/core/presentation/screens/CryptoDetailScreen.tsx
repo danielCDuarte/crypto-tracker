@@ -4,9 +4,23 @@ import { observer } from 'mobx-react-lite';
 import { CryptoDetailViewModel } from '../viewModels/cryptoDetailViewModel';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { Colors } from '../../../assets/Colors';
 
 interface Props {
   viewModel: CryptoDetailViewModel;
+}
+
+export const ConstantsCryptoDetailScreen = {
+  errorMessage: 'No cryptocurrency data available',
+  usdPrice: "USD $",
+  nOrA: "'N/A'",
+  rank: "Rank:",
+  marketCap: "Market Cap:",
+  volume24h: "24h Volume:",
+  priceBtc: "Price in BTC:",
+  circulatingSupply: "Circulating Supply:",
+  totalSupply: "Total Supply:",
+  maxSupply: "Max Supply:"
 }
 
 export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
@@ -20,7 +34,7 @@ export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
   }
 
   if (!viewModel.crypto) {
-    return <ErrorMessage message="No cryptocurrency data available" />;
+    return <ErrorMessage message={ConstantsCryptoDetailScreen.errorMessage} />;
   }
 
   const crypto = viewModel.crypto;
@@ -33,7 +47,7 @@ export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
       </View>
 
       <View style={styles.priceContainer}>
-        <Text style={styles.price}>USD ${parseFloat(crypto.price_usd).toFixed(2)}</Text>
+        <Text style={styles.price}>{ConstantsCryptoDetailScreen.usdPrice} {parseFloat(crypto.price_usd).toFixed(2)}</Text>
         <Text
           style={[
             styles.change,
@@ -44,38 +58,38 @@ export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Rank:</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.rank}</Text>
         <Text style={styles.detailValue}>{crypto.rank}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Market Cap:</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.marketCap}</Text>
         <Text style={styles.detailValue}>${crypto.market_cap_usd}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>24h Volume:</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.volume24h}</Text>
         <Text style={styles.detailValue}>${crypto.volume24.toFixed(2)}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Price in BTC:</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.priceBtc}</Text>
         <Text style={styles.detailValue}>{crypto.price_btc}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Circulating Supply:</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.circulatingSupply}</Text>
         <Text style={styles.detailValue}>{crypto.csupply}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Total Supply:</Text>
-        <Text style={styles.detailValue}>{crypto.tsupply || 'N/A'}</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.totalSupply}</Text>
+        <Text style={styles.detailValue}>{crypto.tsupply || ConstantsCryptoDetailScreen.nOrA}</Text>
       </View>
 
       <View style={styles.detailRow}>
-        <Text style={styles.detailLabel}>Max Supply:</Text>
-        <Text style={styles.detailValue}>{crypto.msupply || 'N/A'}</Text>
+        <Text style={styles.detailLabel}>{ConstantsCryptoDetailScreen.maxSupply}</Text>
+        <Text style={styles.detailValue}>{crypto.msupply || ConstantsCryptoDetailScreen.nOrA}</Text>
       </View>
     </ScrollView>
   );
@@ -84,7 +98,7 @@ export const CryptoDetailScreen: React.FC<Props> = observer(({ viewModel }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundColor,
   },
   content: {
     padding: 16,
@@ -100,7 +114,7 @@ const styles = StyleSheet.create({
   },
   symbol: {
     fontSize: 18,
-    color: '#666',
+    color: Colors.grayDark,
   },
   priceContainer: {
     marginBottom: 24,
@@ -116,21 +130,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   positive: {
-    color: 'green',
+    color: Colors.positiveGreen,
   },
   negative: {
-    color: 'red',
+    color: Colors.negativeRed,
   },
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: Colors.grayLight,
   },
   detailLabel: {
     fontSize: 16,
-    color: '#666',
+    color: Colors.grayDark,
   },
   detailValue: {
     fontSize: 16,

@@ -7,10 +7,15 @@ import { CryptoCard } from '../components/CryptoCard';
 import { SearchBar } from '../components/SearchBar';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { Colors } from '../../../assets/Colors';
 
 interface Props {
   viewModel: CryptoListViewModel;
   onSelectCrypto: (id: CryptoCurrency) => void;
+}
+
+export const ConstantsCryptoListScreen = {
+  placeholderSearch: 'Search crypto ...'
 }
 
 export const CryptoListScreen: React.FC<Props> = observer(({ viewModel, onSelectCrypto }) => {
@@ -31,7 +36,7 @@ export const CryptoListScreen: React.FC<Props> = observer(({ viewModel, onSelect
       <SearchBar
         value={viewModel.searchQuery}
         onChangeText={(text) => viewModel.setSearchQuery(text)}
-        placeholder="Search crypto ..."
+        placeholder = {ConstantsCryptoListScreen.placeholderSearch}
       />
       <FlatList
         data={viewModel.filteredCryptos}
@@ -48,7 +53,7 @@ export const CryptoListScreen: React.FC<Props> = observer(({ viewModel, onSelect
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundColor,
   },
   listContent: {
     paddingBottom: 16,

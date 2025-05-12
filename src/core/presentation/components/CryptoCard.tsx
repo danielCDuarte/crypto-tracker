@@ -1,10 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { CryptoCurrency } from '../../domain/entities/crypto';
+import { Colors } from '../../../assets/Colors';
 
 interface Props {
   crypto: CryptoCurrency;
   onPress: () => void;
+}
+
+export const ConstantsCryptoCard = {
+  usdPrice: "USD $",
 }
 
 export const CryptoCard: React.FC<Props> = ({ crypto, onPress }) => {
@@ -15,7 +20,7 @@ export const CryptoCard: React.FC<Props> = ({ crypto, onPress }) => {
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{crypto.name}</Text>
-        <Text style={styles.price}>USD ${parseFloat(crypto.price_usd).toFixed(2)}</Text>
+        <Text style={styles.price}>{ConstantsCryptoCard.usdPrice} {parseFloat(crypto.price_usd).toFixed(2)}</Text>
       </View>
       <View style={styles.changeContainer}>
         <Text
@@ -37,11 +42,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: Colors.grayLight,
     alignItems: 'center',
   },
   symbolContainer: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: Colors.grayLight,
     borderRadius: 20,
     width: 60,
     height: 60,
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   price: {
-    color: '#666',
+    color: Colors.grayDark,
   },
   changeContainer: {
     alignItems: 'flex-end',
@@ -69,9 +74,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   positive: {
-    color: 'green',
+    color: Colors.positiveGreen,
   },
   negative: {
-    color: 'red',
+    color: Colors.negativeRed,
   },
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Colors } from '../../../assets/Colors';
 
 interface Props {
   message: string;
@@ -27,12 +28,12 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   message: {
-    color: 'red',
+    color: Colors.negativeRed,
     marginBottom: 10,
     textAlign: 'center',
   },
   retry: {
-    color: 'blue',
+    color: Colors.blueDark,
     textDecorationLine: 'underline',
   },
 });

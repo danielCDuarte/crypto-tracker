@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
+import { Colors } from '../../../assets/Colors';
 
 interface Props {
   value: string;
@@ -15,7 +16,7 @@ export const SearchBar: React.FC<Props> = ({ value, onChangeText, placeholder = 
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#999"
+        placeholderTextColor={Colors.grayDark}
       />
     </View>
   );
@@ -24,14 +25,14 @@ export const SearchBar: React.FC<Props> = ({ value, onChangeText, placeholder = 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundColor,
   },
   input: {
     height: 40,
-    borderColor: '#e0e0e0',
+    borderColor: Colors.grayLight,
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: Colors.backgroundColor,
   },
 });
