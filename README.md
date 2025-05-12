@@ -1,9 +1,13 @@
-![Screenshot 2025-05-12 at 4 47 29 PM](https://github.com/user-attachments/assets/0a4ef9ec-9b76-497e-afaf-b14cffbc8c2d)# Crypto Tracker - Seguimiento de Criptomonedas 📈
+# Crypto Tracker 📈
 
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-
 Aplicación móvil para rastrear precios y estadísticas de criptomonedas en tiempo real.
+
+![Screenshot_1747086300](https://github.com/user-attachments/assets/2902d00f-c8d0-4c7c-970a-2b0d8cb41362)
+
+![Screenshot_1747086313](https://github.com/user-attachments/assets/f054fae7-7182-4d8b-9002-20f43b779cf0)
+
 
 ## Características principales ✨
 
