@@ -1,4 +1,3 @@
-// src/utils/network/httpClient.ts
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 
 export class HttpError extends Error {
