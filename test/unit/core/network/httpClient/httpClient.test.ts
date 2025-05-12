@@ -4,21 +4,56 @@ import axios, { AxiosInstance } from 'axios';
 
 jest.mock('axios');
 
-const mockAxiosInstance: Partial<AxiosInstance> = {
+const mockInterceptor = {
+  use: jest.fn(),
+  eject: jest.fn(),
+  clear: jest.fn()
+};
+
+const mockHeadersDefaults = {
+  common: {},
+  delete: {},
+  get: {},
+  head: {},
+  post: {},
+  put: {},
+  patch: {}
+};
+
+const mockAxiosInstance: Partial<AxiosInstance> & { 
+  defaults: { headers: typeof mockHeadersDefaults } 
+} = {
   interceptors: {
-    request: { use: jest.fn() },
-    response: { use: jest.fn() }
+    request: {
+      use: jest.fn(),
+      eject: jest.fn(),
+      clear: jest.fn()
+    },
+    response: {
+      use: jest.fn(),
+      eject: jest.fn(),
+      clear: jest.fn()
+    }
   },
   defaults: {
     baseURL: '',
-    headers: { common: {} }
+    headers: mockHeadersDefaults,
+    // Include other required defaults
+    adapter: jest.fn(),
+    transformRequest: [],
+    transformResponse: [],
+    timeout: 0,
+    xsrfCookieName: '',
+    xsrfHeaderName: ''
   },
   request: jest.fn(),
   get: jest.fn(),
   post: jest.fn(),
   put: jest.fn(),
   delete: jest.fn(),
-};
+  head: jest.fn(),
+  patch: jest.fn()
+} as unknown as AxiosInstance;
 
 describe('HttpClient', () => {
   let httpClient: HttpClient;

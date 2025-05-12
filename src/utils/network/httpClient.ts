@@ -42,12 +42,10 @@ export class HttpClient {
         axiosError.message,
         axiosError.response?.status
       );
-      
-      // Set timeout flag
+    
       if (axiosError.code === 'ECONNABORTED') {
         httpError.isTimeout = true;
-      }
-      
+      }  
       throw httpError;
     }
   }

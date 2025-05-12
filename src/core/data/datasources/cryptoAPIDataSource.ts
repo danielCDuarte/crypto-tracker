@@ -14,8 +14,14 @@ export class CryptoAPIDataSource {
   }
 
   async getCryptos(): Promise<CryptoCurrency[]> {
-    let url = `${BASE_URL}/tickers/`
-    const result = await this.httpClient.request({ method: 'GET', url: url });
-    return result.data.map((crypto: CryptoDTO) => mapToDomain(crypto));
+    const url = `${BASE_URL}/tickers/`;
+    const response = await this.httpClient.request<{ data: CryptoDTO[] }>({ 
+      method: 'GET', 
+      url: url 
+    });
+    if (!Array.isArray(response?.data)) {
+      throw new Error('Invalid response format from API');
+    }
+    return response.data.map(mapToDomain);
   }
 }
